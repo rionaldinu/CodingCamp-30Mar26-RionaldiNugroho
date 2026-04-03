@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense & Budget Visualizer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💰 Budget Visualizer</h1>
+      <button id="themeToggle">🌙 Dark Mode</button>
+    </header>
+
+    <div class="balance-card">
+      <p>Total Spent</p>
+      <h2 id="totalBalance">Rp 0</h2>
+    </div>
+
+    <section class="card">
+      <h3>Add Transaction</h3>
+      <form id="transactionForm">
+        <input type="text" id="itemName" placeholder="Item Name" />
+        <input type="number" id="amount" placeholder="Amount (Rp)" min="1" />
+        <div class="row">
+          <select id="category">
+            <option value="">Select Category</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+          <input type="text" id="customCategory" placeholder="Custom category..." />
+        </div>
+        <div class="row">
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect">
+            <option value="newest">Newest</option>
+            <option value="highest">Highest Amount</option>
+            <option value="lowest">Lowest Amount</option>
+          </select>
+        </div>
+        <span id="formError" class="error"></span>
+        <button type="submit">+ Add Transaction</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h3>Spending by Category</h3>
+      <canvas id="pieChart"></canvas>
+    </section>
+
+    <section class="card">
+      <h3>Transactions</h3>
+      <ul id="transactionList"></ul>
+    </section>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
